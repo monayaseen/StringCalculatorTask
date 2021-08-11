@@ -15,11 +15,13 @@ namespace StringCalculatorTask.Test
         [Theory]
         [InlineData("1",1)]
         [InlineData("2",2)]
-        public void AString_Returns_IntValue(string numbers,int expectdSum)
+        [InlineData("1,2",3)]
+        [InlineData("1,5",6)]
+        public void StringNumbers_ReturnsIntSum(string numbers,int expectedSum)
         {
             var calculator = new StringCalculator();
             var result = calculator.add(numbers);
-            Assert.Equal(expectdSum,result);
+            Assert.Equal(expectedSum,result);
         }
     }
 }
