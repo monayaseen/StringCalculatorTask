@@ -6,8 +6,9 @@ namespace StringCalculatorTask
     {
         public int add(string numbers)
         {
+            if(string.IsNullOrEmpty(numbers))
             return 0;
-            
+            return 1;
         }
     }
 }

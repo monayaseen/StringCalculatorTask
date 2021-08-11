@@ -12,5 +12,12 @@ namespace StringCalculatorTask.Test
             var result = calculator.add("");
             Assert.Equal(0,result);
         }
+        [Fact]
+        public void StringWithValueEqualsOne_ReturnsOne()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.add("");
+            Assert.Equal(0,result);
+        }
     }
 }
