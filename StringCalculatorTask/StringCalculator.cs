@@ -20,8 +20,21 @@ namespace StringCalculatorTask
                 separator.Add(Convert.ToChar(newSeparator));
                 
             }
-            var SumResult = stringNumber.Split(separator.ToArray())
-                .Select(m => Int32.Parse(m)).Sum();
+
+            var ListOfNumbers = stringNumber.Split(separator.ToArray())
+                .Select(m => Int32.Parse(m));
+            
+            var negativeNumber= ListOfNumbers.Where(number => number < 0);
+            if (negativeNumber.Any())
+            {
+                
+                string negativeString = string.Join(',', negativeNumber
+                    .Select(number => number.ToString()));
+                
+                throw new Exception($"Negatives not allowed: {negativeString}");
+            }
+            
+            var SumResult = ListOfNumbers.Sum();
             return SumResult;
         }
     }

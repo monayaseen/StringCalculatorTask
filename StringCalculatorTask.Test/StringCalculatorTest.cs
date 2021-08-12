@@ -28,6 +28,16 @@ namespace StringCalculatorTask.Test
             var result = calculator.add(numbers);
             Assert.Equal(expectedSum,result);
         }
-
+        [Theory]
+        [InlineData("1,4,-1","Negatives not allowed: -1")]
+        [InlineData("1,-4,-1","Negatives not allowed: -4,-1")]
+        [InlineData("-51,-4,-1","Negatives not allowed: -51,-4,-1")]
+        public void StringNumbersWithNegativeNumbers_ThrowsException(string numbers,string expectedMsg)
+        {
+            var calculator = new StringCalculator();
+            Action action=() =>calculator.add(numbers);
+            var exception = Assert.Throws<Exception>(action);
+            Assert.Equal(expectedMsg,exception.Message);
+        }
     }
 }
