@@ -25,6 +25,17 @@ namespace StringCalculatorTask.Test
             var result = calculator.add(numbers);
             Assert.Equal(expectedSum,result);
         }
+        
+        [Theory]
+        [InlineData("//;\n2;1",3)]
+        [InlineData("//;\n2;1;3;4",10)]
+        [InlineData("//;\n2;1;0",3)]
+        public void StringNumbersWithDifferentDelimiters_ReturnsIntSum(string numbers,int expectedSum)
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.add(numbers);
+            Assert.Equal(expectedSum,result);
+        }
 
     }
 }
