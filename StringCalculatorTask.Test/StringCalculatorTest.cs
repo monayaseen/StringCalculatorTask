@@ -17,22 +17,14 @@ namespace StringCalculatorTask.Test
         [InlineData("1,3,5",9)]
         [InlineData("1,9,3,5",18)]
         [InlineData("17,20,3,9",49)]
+        [InlineData("1\n2",3)]
+        [InlineData("1\n7",8)]
         public void StringNumbers_ReturnsIntSum(string numbers,int expectedSum)
         {
             var calculator = new StringCalculator();
             var result = calculator.add(numbers);
             Assert.Equal(expectedSum,result);
         }
-        
-        [Theory]
-        [InlineData("1\n2",3)]
-        public void StringNumbersWithNewLine_ReturnsIntSum(string numbers,int expectedSum)
-        {
-            var calculator = new StringCalculator();
-            var result = calculator.add(numbers);
-            Assert.Equal(expectedSum,result);
-        }
-        
-        
+
     }
 }
