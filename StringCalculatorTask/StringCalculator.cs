@@ -34,7 +34,9 @@ namespace StringCalculatorTask
                 throw new Exception($"Negatives not allowed: {negativeString}");
             }
             
-            var SumResult = ListOfNumbers.Sum();
+            var SumResult = ListOfNumbers.Where(number => number < 1000).
+                Sum();
+            
             return SumResult;
         }
     }

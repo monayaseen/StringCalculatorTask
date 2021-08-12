@@ -39,5 +39,18 @@ namespace StringCalculatorTask.Test
             var exception = Assert.Throws<Exception>(action);
             Assert.Equal(expectedMsg,exception.Message);
         }
+        
+        [Theory]
+        [InlineData("2,1001",2)]
+        [InlineData("10000,9",9)]
+        [InlineData("10,10000,9",19)]
+        [InlineData("15,7,1998",22)]
+
+        public void StringNumbersWithBigNumbers_IgnoreBigNumbers(string numbers,int expectedSum)
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.add(numbers);
+            Assert.Equal(expectedSum,result);
+        }
     }
 }
