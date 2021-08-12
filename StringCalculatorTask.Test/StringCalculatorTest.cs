@@ -23,6 +23,16 @@ namespace StringCalculatorTask.Test
             var result = calculator.add(numbers);
             Assert.Equal(expectedSum,result);
         }
-
+        
+        [Theory]
+        [InlineData("1\n2",3)]
+        public void StringNumbersWithNewLine_ReturnsIntSum(string numbers,int expectedSum)
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.add(numbers);
+            Assert.Equal(expectedSum,result);
+        }
+        
+        
     }
 }
