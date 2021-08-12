@@ -4,7 +4,7 @@ using System.Linq;
 namespace StringCalculatorTask
 {
     public class StringCalculator
-    {
+    { 
         public int add(string numbers)
         {
             if(string.IsNullOrEmpty(numbers))
